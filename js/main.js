@@ -7,7 +7,9 @@
         , quantity
         , numberOfRegion = 0
         , currentQuestion = ''
-        , currentAttempts = {};
+        , currentAttempts = {}
+        , countries
+        , errors = 0;
 
     var projectionCanada = d3.geoAzimuthalEquidistant()
         .scale(900)
@@ -116,12 +118,15 @@
 
         } else {
 
+            errors++;
             if (!currentAttempts[currentQuestion]) {
                 currentAttempts[currentQuestion] = 1;
             } else {
                 currentAttempts[currentQuestion] += 1;
             }
         }
+
+        document.getElementById('score').innerText = errors;
     }
 
     function showQuestion() {
@@ -130,6 +135,7 @@
         } else {
             document.getElementById('task').innerText = 'You Win!';
             console.log('currentAttempts', currentAttempts);
+            console.log('errors', errors);
         }
     }
 
@@ -158,15 +164,18 @@
             .attr("width", width)
             .attr("height", height);
 
-        // Australia
-        // Brazil
-        // Canada
-        // United States of America
-        var chosenCountry = 'United States of America';
+        countries = ['Australia', 'Brazil', 'Canada', 'United States of America'];
+
+        var chosenCountry = countries[3];
         var chosenProjection = chooseProjection(chosenCountry);
         var path = d3.geoPath().projection(chosenProjection);
 
         drawMap(path, chosenCountry);
+
+        document.getElementById('australia').onclick = function() { console.log('AUS'); };
+        document.getElementById('brazil').onclick = function() { console.log('BRA'); };
+        document.getElementById('canada').onclick = function() { console.log('CAN'); };
+        document.getElementById('usa').onclick = function() { console.log('USA'); };
 
     }
 
