@@ -7,3 +7,58 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    font-family: Arial, Verdana, sans-serif;
+}
+.wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+.header {
+    width: 100%;
+}
+.container {
+    width: 100%;
+    padding: 0 0 150px;
+}
+.map-contianer {
+    width: 100%;
+    height: 100%;
+}
+.map {
+    margin: 0 auto;
+    display: block;
+}
+.hidden {
+    display: none;
+}
+.rightRegion {
+    fill: green;
+}
+.first-attempt {
+    fill: green;
+}
+.second-attempt {
+    fill: orange;
+}
+.third-attempt {
+    fill: red;
+}
+.footer {
+    width: 100%;
+    height: 150px;
+    margin: -150px auto 0;
+    background: #BFF08E;
+    position: relative;
+}
+.task {
+    text-align: center;
+    line-height: 150px;
+    font-size: 24px;
+}
