@@ -129,6 +129,7 @@
             document.getElementById('task').innerText = 'Click on ' + regions[numberOfRegion].properties.name;
         } else {
             document.getElementById('task').innerText = 'You Win!';
+            console.log('currentAttempts', currentAttempts);
         }
     }
 
@@ -136,9 +137,9 @@
         var countryRegions = [];
         for (var i = 0; i < _regions.length; i++) {
             if (_regions[i].properties.admin === chosenCountry) {
-                if (_regions[i].properties.name === 'Jervis Bay Territory') {
-                    continue;
-                }
+                if (_regions[i].properties.name === 'Jervis Bay Territory') { continue; }
+                if (_regions[i].properties.name === 'Prince Edward Island') { continue; }
+                if (_regions[i].properties.name === 'District of Columbia') { continue; }
                 countryRegions.push(_regions[i]);
             }
         }
@@ -157,7 +158,11 @@
             .attr("width", width)
             .attr("height", height);
 
-        var chosenCountry = 'Australia';
+        // Australia
+        // Brazil
+        // Canada
+        // United States of America
+        var chosenCountry = 'United States of America';
         var chosenProjection = chooseProjection(chosenCountry);
         var path = d3.geoPath().projection(chosenProjection);
 
