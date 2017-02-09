@@ -102,6 +102,7 @@
     }
 
     function checkAnswer(_name, _regionEl) {
+        if (numberOfRegion >= quantity) return;
         currentQuestion = regions[numberOfRegion].properties.name;
         if (_name === currentQuestion) {
 
@@ -123,6 +124,7 @@
                 currentAttempts[currentQuestion] = 1;
             } else {
                 currentAttempts[currentQuestion] += 1;
+                // TODO: stop increasing of errors if quantity of errors for this region is 3
             }
         }
 
@@ -144,7 +146,6 @@
         for (var i = 0; i < _regions.length; i++) {
             if (_regions[i].properties.admin === chosenCountry) {
                 if (_regions[i].properties.name === 'Jervis Bay Territory') { continue; }
-                if (_regions[i].properties.name === 'Prince Edward Island') { continue; }
                 if (_regions[i].properties.name === 'District of Columbia') { continue; }
                 countryRegions.push(_regions[i]);
             }
