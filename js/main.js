@@ -75,6 +75,8 @@
 
             showQuestionnaire(allRegions, chosenCountry);
 
+            svg.selectAll("*").remove();
+
             svg.selectAll(".subunit")
                 .data(topojson.feature(states, states.objects.new_lakes).features)
                 .enter().append("path")
@@ -157,6 +159,14 @@
     }
 
 
+    function chooseCountry(_index) {
+        var chosenCountry = countries[_index];
+        var chosenProjection = chooseProjection(chosenCountry);
+        var path = d3.geoPath().projection(chosenProjection);
+
+        drawMap(path, chosenCountry);
+    }
+
 
     function initialize() {
 
@@ -167,16 +177,18 @@
 
         countries = ['Australia', 'Brazil', 'Canada', 'United States of America'];
 
-        var chosenCountry = countries[3];
-        var chosenProjection = chooseProjection(chosenCountry);
-        var path = d3.geoPath().projection(chosenProjection);
-
-        drawMap(path, chosenCountry);
-
-        document.getElementById('australia').onclick = function() { console.log('AUS'); };
-        document.getElementById('brazil').onclick = function() { console.log('BRA'); };
-        document.getElementById('canada').onclick = function() { console.log('CAN'); };
-        document.getElementById('usa').onclick = function() { console.log('USA'); };
+        document.getElementById('australia').onclick = function() {
+            chooseCountry(0);
+        };
+        document.getElementById('brazil').onclick = function() {
+            chooseCountry(1);
+        };
+        document.getElementById('canada').onclick = function() {
+            chooseCountry(2);
+        };
+        document.getElementById('usa').onclick = function() {
+            chooseCountry(3);
+        };
 
     }
 
