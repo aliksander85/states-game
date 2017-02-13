@@ -1,0 +1,16 @@
+{
+  "name": "usa-states",
+  "version": "1.0.0",
+  "description": "Just open the index.html in your browser and enjoy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/aliksander85/usa-states.git"
+  },
+  "author": "Alexander Potapov",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/aliksander85/usa-states#readme"
+}
