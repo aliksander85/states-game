@@ -1,16 +1,25 @@
 {
-  "name": "usa-states",
-  "version": "1.0.0",
-  "description": "Just open the index.html in your browser and enjoy",
-  "main": "index.js",
+  "name": "states-game",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
+    "start": "node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/aliksander85/usa-states.git"
+    "url": "git+ssh://git@bitbucket.org/aliksander85/states-game.git"
   },
   "author": "Alexander Potapov",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/aliksander85/usa-states#readme"
+  "homepage": "https://bitbucket.org/aliksander85/states-game#readme",
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "ejs": "^2.5.5",
+    "express": "~4.14.1",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
+  }
 }
