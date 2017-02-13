@@ -7,7 +7,7 @@
         , quantity
         , numberOfRegion = 0
         , currentQuestion = ''
-        , currentAttempts = {}
+        , attempts = {}
         , countries
         , errors = 0;
 
@@ -105,16 +105,27 @@
 
     function checkAnswer(_name, _regionEl) {
         if (numberOfRegion >= quantity) return;
+
         currentQuestion = regions[numberOfRegion].properties.name;
+
         if (_name === currentQuestion) {
 
-            if (!currentAttempts[currentQuestion]) {
-                currentAttempts[currentQuestion] = 1;
+            if (!attempts[currentQuestion]) {
+                attempts[currentQuestion] = 1;
+                d3.select(_regionEl).classed('true-region', false);
                 d3.select(_regionEl).classed('first-attempt', true);
-            } else if (currentAttempts[currentQuestion] == 1) {
+            } else if (attempts[currentQuestion] == 1) {
+                attempts[currentQuestion] = 2;
+                d3.select(_regionEl).classed('true-region', false);
                 d3.select(_regionEl).classed('second-attempt', true);
-            } else if (currentAttempts[currentQuestion] >= 2) {
+            } else if (attempts[currentQuestion] == 2) {
+                attempts[currentQuestion] = 3;
+                d3.select(_regionEl).classed('true-region', false);
                 d3.select(_regionEl).classed('third-attempt', true);
+            } else if (attempts[currentQuestion] >= 3) {
+                attempts[currentQuestion] = 4;
+                d3.select(_regionEl).classed('true-region', false);
+                d3.select(_regionEl).classed('fourth-attempt', true);
             }
             numberOfRegion++;
             showQuestion();
@@ -122,24 +133,64 @@
         } else {
 
             errors++;
-            if (!currentAttempts[currentQuestion]) {
-                currentAttempts[currentQuestion] = 1;
+            if (!attempts[currentQuestion]) {
+                attempts[currentQuestion] = 1;
             } else {
-                currentAttempts[currentQuestion] += 1;
-                // TODO: stop increasing of errors if quantity of errors for this region is 3
+                attempts[currentQuestion] += 1;
+                if (attempts[currentQuestion] >= 4) {
+                    attempts[currentQuestion] = 4;
+
+                    d3.select('.' + regions[numberOfRegion].id).classed('true-region', true);
+                }
             }
         }
 
         document.getElementById('score').innerText = errors;
     }
 
+
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+
+
+    function calculateResults(_attempts) {
+        var sum = 0;
+        var points = {
+            1: 100,
+            2: 67,
+            3: 33,
+            4: 0
+        };
+        var score;
+
+        for (var attempt in _attempts) {
+            var point = _attempts[attempt];
+            sum += points[point];
+        }
+        // console.log('SUM', sum);
+        score = sum / Object.size(_attempts);
+        return score;
+    }
+
+
     function showQuestion() {
         if (numberOfRegion < quantity) {
             document.getElementById('task').innerText = 'Click on ' + regions[numberOfRegion].properties.name;
         } else {
-            document.getElementById('task').innerText = 'You Win!';
-            console.log('currentAttempts', currentAttempts);
-            console.log('errors', errors);
+            // console.log('attempts', attempts);
+            // console.log('errors', errors);
+            var score = calculateResults(attempts);
+
+            document.getElementById('task').innerText = 'You Win! Your score is ' + score + '%';
+            showCountryList(true);
+
+            attempts = {};
+            errors = 0;
         }
     }
 
@@ -149,6 +200,9 @@
             if (_regions[i].properties.admin === chosenCountry) {
                 if (_regions[i].properties.name === 'Jervis Bay Territory') { continue; }
                 if (_regions[i].properties.name === 'District of Columbia') { continue; }
+
+                _regions[i].id = _regions[i].id.replace(/\./, '-');
+
                 countryRegions.push(_regions[i]);
             }
         }
@@ -159,7 +213,19 @@
     }
 
 
+    function showCountryList(_show) {
+        if (_show) {
+            document.getElementById('countries-list').style.display = 'block';
+        } else {
+            document.getElementById('countries-list').style.display = 'none';
+        }
+
+    }
+
+
     function chooseCountry(_index) {
+        showCountryList(false);
+
         var chosenCountry = countries[_index];
         var chosenProjection = chooseProjection(chosenCountry);
         var path = d3.geoPath().projection(chosenProjection);
