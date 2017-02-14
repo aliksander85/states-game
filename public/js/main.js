@@ -3,6 +3,7 @@
     var width = 960
         , height = 800
         , svg
+        , tooltip
         , regions = []
         , quantity
         , numberOfRegion = 0
@@ -64,6 +65,22 @@
         }
     }
 
+
+    function showTooltip(_x, _y, _name) {
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+        tooltip.html(_name)
+            .style("left", (_x) + "px")
+            .style("top", (_y - 28) + "px");
+    }
+    function hideTooltip() {
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+    }
+
+
     function drawMap(path, chosenCountry) {
         d3.json('../data/provincies.json', function (error, states) {
             if (error) {
@@ -96,14 +113,18 @@
                 })
                 .on('click', function(d) {
                     console.log('NAME', d.properties.name);
-                    checkAnswer(d.properties.name, this);
+                    checkAnswer(d.properties.name, this, d3.event.pageX, d3.event.pageY);
                 })
                 .attr("d", path);
+
+            tooltip = d3.select('body').append("div")
+                .attr("class", "tooltip")
+                .style("opacity", 0);
 
         });
     }
 
-    function checkAnswer(_name, _regionEl) {
+    function checkAnswer(_name, _regionEl, _x, _y) {
         if (numberOfRegion >= quantity) return;
 
         currentQuestion = regions[numberOfRegion].properties.name;
@@ -131,6 +152,10 @@
             showQuestion();
 
         } else {
+
+            showTooltip(_x, _y, _name);
+
+            setTimeout(hideTooltip, 1500);
 
             errors++;
             if (!attempts[currentQuestion]) {

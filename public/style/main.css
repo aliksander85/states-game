@@ -158,6 +158,20 @@ body {
 .true-region {
     fill: #8e408e;
 }
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: 28px;
+    line-height: 28px;
+    padding: 7px 20px 0;
+    font: 18px Arial, Verdana, sans-serif;
+    background: #de481a;
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    pointer-events: none;
+}
 
 .footer {
     /*width: 100%;*/
