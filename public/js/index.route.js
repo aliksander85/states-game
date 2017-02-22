@@ -9,7 +9,7 @@ angular
                 controllerAs: 'home'
             })
             .state('game', {
-                url: '/game:id',
+                url: '/game/:id',
                 templateUrl: '../partials/game.html',
                 controller: 'GameController',
                 controllerAs: 'game'

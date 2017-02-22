@@ -9,8 +9,4 @@ angular
             $uibModalInstance.close();
         };
 
-        vm.cancel = function () {
-            $uibModalInstance.dismiss('cancel');
-        };
-
     }]);

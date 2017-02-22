@@ -1,8 +1,10 @@
 <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" ng-click="modal.ok()">
+        <span aria-hidden="true">&times;</span>
+    </button>
     <h3 class="modal-title" id="modal-title">{{modal.content.title}}</h3>
 </div>
 <div class="modal-body" id="modal-body">{{modal.content.body}}</div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="modal.ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="modal.cancel()">Cancel</button>
+    <button class="btn btn-default" type="button" ng-click="modal.ok()">OK</button>
 </div>

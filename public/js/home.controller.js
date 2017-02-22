@@ -1,30 +1,13 @@
 angular
     .module('statesGame')
-    .controller('HomeController', ['$state', '$uibModal', function ($state, $uibModal) {
+    .controller('HomeController', ['$state', function ($state) {
         var vm = this;
+        vm.countries = ['Australia', 'Brazil', 'Canada', 'USA'];
+        vm.selected = "";
 
-        vm.openModal = function () {
-            var modalInstance = $uibModal.open({
-                templateUrl: '../partials/modal.html',
-                controller: 'ModalCtrl',
-                controllerAs: 'modal',
-                size: 'md',
-                resolve: {
-                    content: function () {
-                        return {
-                            title: "Modal title",
-                            body: "Modal body"
-                        }
-                    }
-                }
-            });
-
-            modalInstance.result.then(function () {
-
-            }, function () {
-
-            });
+        vm.startGame = function () {
+            if (angular.isString(vm.selected) && vm.selected.length > 0) {
+                $state.go('game', { id: vm.selected.toLowerCase() });
+            }
         };
-
-        vm.openModal();
     }]);

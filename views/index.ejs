@@ -18,31 +18,15 @@
     <script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 </head>
 <body>
+    <ui-view></ui-view>
 
-    <div class="wrapper">
-        <header class="header">
-            <ul class="countries-list" id="countries-list">
-                <li class="countries-item" id="australia">Australia</li>
-                <li class="countries-item" id="brazil">Brazil</li>
-                <li class="countries-item" id="canada">Canada</li>
-                <li class="countries-item" id="usa">USA</li>
-            </ul>
-        </header>
-        <main class="main-container">
-            <ui-view></ui-view>
-            <div class="map-contianer" id="svg-container"></div>
-        </main>
-    </div>
-
-    <footer class="footer">
-        <p class="task" id="task"></p>
-    </footer>
-
-<script src="./js/main.js"></script>
 <script type="text/javascript" src="./js/index.module.js"></script>
 <script type="text/javascript" src="./js/index.route.js"></script>
 <script type="text/javascript" src="./js/home.controller.js"></script>
 <script type="text/javascript" src="./js/game.controller.js"></script>
 <script type="text/javascript" src="./js/modal.controller.js"></script>
+<script type="text/javascript" src="./js/map.service.js"></script>
+<script type="text/javascript" src="./js/modal.service.js"></script>
+<script type="text/javascript" src="./js/questionnaire.service.js"></script>
 </body>
 </html>
