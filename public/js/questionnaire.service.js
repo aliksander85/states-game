@@ -1,6 +1,6 @@
 angular
     .module('statesGame')
-    .service('Questionnaire', ['$rootScope', function ($rootScope) {
+    .service('Questionnaire', ['$rootScope', '$timeout', function ($rootScope, $timeout) {
         var self = this
             , numberOfRegion = 0
             , attempts = {}
@@ -135,7 +135,9 @@ angular
             errors = 0;
             numberOfRegion = 0;
 
-            $rootScope.$broadcast('finishedGame', 'You Win! Your score is ' + score + '%');
+            $timeout(function () {
+                $rootScope.$broadcast('finishedGame', 'You Win! Your score is ' + score + '%');
+            }, 1000);
         }
 
         return self;
