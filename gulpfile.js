@@ -17,8 +17,8 @@ gulp.task('styles', function () {
         .pipe(gulp.dest('public/dist'));
 });
 
-// Scripts
-gulp.task('scripts', function () {
+// App Scripts
+gulp.task('app-scripts', function () {
     return gulp.src(
         [
             './public/js/index.module.js',
@@ -33,6 +33,27 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('public/dist'));
 });
 
+// Vendor Scripts
+gulp.task('vendor-scripts', function () {
+    return gulp.src(
+        [
+            './public/bower_components/bootstrap/dist/js/bootstrap.min.js',
+            './public/bower_components/d3/d3.min.js',
+            './public/bower_components/angular/angular.min.js',
+            './public/bower_components/angular-animate/angular-animate.min.js',
+            './public/bower_components/angular-sanitize/angular-sanitize.min.js',
+            './public/bower_components/angular-ui-router/release/angular-ui-router.min.js',
+            './public/bower_components/angular-bootstrap/ui-bootstrap.min.js',
+            './public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'
+        ])
+        .pipe(jshint.reporter('default'))
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('public/dist'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest('public/dist'));
+});
+
 // Clean
 gulp.task('clean', function () {
     return gulp.src('public/dist/**', {read: false})
@@ -41,5 +62,5 @@ gulp.task('clean', function () {
 
 // Default task
 gulp.task('default', ['clean'], function () {
-    gulp.start('styles', 'scripts');
+    gulp.start('styles', 'app-scripts', 'vendor-scripts');
 });
