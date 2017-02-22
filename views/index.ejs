@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="statesGame">
 <head>
     <meta charset="UTF-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="./style/main.css">
     <script src="./bower_components/d3/d3.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 </head>
 <body>
 
@@ -18,7 +21,9 @@
             <li class="countries-item" id="usa">USA</li>
         </ul>
     </header>
+
     <main class="container">
+        <ui-view></ui-view>
         <div class="score-block">
             <p class="score-info">Errors: <span id="score"></span></p>
         </div>
@@ -31,5 +36,9 @@
 </footer>
 
 <script src="./js/main.js"></script>
+<script type="text/javascript" src="./js/index.module.js"></script>
+<script type="text/javascript" src="./js/index.route.js"></script>
+<script type="text/javascript" src="./js/home.controller.js"></script>
+<script type="text/javascript" src="./js/game.controller.js"></script>
 </body>
 </html>

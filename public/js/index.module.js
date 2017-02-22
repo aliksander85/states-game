@@ -1,0 +1,1 @@
+angular.module('statesGame', ['ui.router', 'ngAnimate']);
