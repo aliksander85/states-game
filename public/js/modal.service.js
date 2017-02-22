@@ -20,6 +20,10 @@ angular
             });
 
             modalInstance.result.then(function () {
+                // modal close
+                cb();
+            }, function () {
+                // modal dismiss
                 cb();
             });
         };
