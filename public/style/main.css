@@ -258,6 +258,19 @@ body {
 
 .modal-header .close {
     outline: none !important;
+    transition: opacity .2s ease-out;
+}
+
+.modal-header .close:hover {
+    transition: opacity .2s ease-in;
+}
+
+.modal-dialog .btn-default {
+    transition: background-color .2s ease-out;
+}
+
+.modal-dialog .btn-default:hover {
+    transition: background-color .2s ease-in;
 }
 
 /* animations --------------------------------------- */
