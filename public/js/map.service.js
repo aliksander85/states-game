@@ -103,11 +103,13 @@ angular
                     .attr('stroke', '#212121')
                     .on('mouseover', function() {
                         d3.select(this)
-                            .attr("fill", '#777');
+                            .attr("fill", '#777')
+                            .style("transition", "fill .5s ease-in");
                     })
                     .on('mouseout', function() {
                         d3.select(this)
-                            .attr("fill", '#ccc');
+                            .attr("fill", '#ccc')
+                            .style("transition", "fill .5s ease-out");
                     })
                     .on('click', function(d) {
                         Questionnaire.checkAnswer(d.properties.name, this, d3.event.pageX, d3.event.pageY);

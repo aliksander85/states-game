@@ -28,6 +28,10 @@ footer, header, hgroup, menu, nav, section {
 
 body {
     line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 ol, ul {
@@ -156,9 +160,42 @@ body {
     fill: #e45d5d;
 }
 
+.rightRegion, .first-attempt, .second-attempt, .third-attempt, .fourth-attempt, .true-region {
+    transition: fill .5s ease-in;
+}
+
 .true-region {
     fill: #8e408e;
+    animation: shake-item .5s;
+    -webkit-animation: shake-item .5s;
 }
+
+@keyframes shake-item {
+    10%, 90% {
+        transform: translateX(-1px);
+        -webkit-transform: translateX(-1px);
+        -ms-transform: translateX(-1px);
+    }
+
+    20%, 80% {
+        transform: translateX(-3px);
+        -webkit-transform: translateX(-3px);
+        -ms-transform: translateX(-3px);
+    }
+
+    30%, 50%, 70% {
+        transform: translateX(1px);
+        -webkit-transform: translateX(1px);
+        -ms-transform: translateX(1px);
+    }
+
+    40%, 60% {
+        transform: translateX(3px);
+        -webkit-transform: translateX(3px);
+        -ms-transform: translateX(3px);
+    }
+}
+
 .tooltip {
     position: absolute;
     text-align: center;
