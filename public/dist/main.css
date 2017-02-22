@@ -1,0 +1,309 @@
+/* Eric Meyer's CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* End of Eric Meyer's CSS Reset */
+
+html {
+    height: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+
+body {
+    font: 12px/18px Arial, sans-serif;
+    height: 100%;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+
+/*.header {*/
+    /*width: 100%;*/
+    /*height: 40px;*/
+/*}*/
+
+.countries-list {
+    list-style-type: none;
+}
+
+.countries-item {
+    float: left;
+    padding: 5px;
+    background-color: #BFF08E;
+    margin: 5px;
+}
+
+.countries-item:hover {
+    cursor: pointer;
+}
+
+.main-container {
+    width: 100%;
+    padding: 0 0 115px;
+    position: relative;
+}
+
+.score-block {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+}
+
+.score-info {
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: #9ce2ff;
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    /*background-color: #37474F;*/
+    background-color: #fff;
+}
+
+.map {
+    margin: 0 auto;
+    display: block;
+    width: 960px;
+    height: 800px;
+}
+
+.hidden {
+    display: none;
+}
+
+.rightRegion {
+    fill: green;
+}
+
+.first-attempt {
+    fill: #6dbf6d;
+}
+
+.second-attempt {
+    fill: #dede74;
+}
+
+.third-attempt {
+    fill: #f3c571;
+}
+
+.fourth-attempt {
+    fill: #e45d5d;
+}
+
+.rightRegion, .first-attempt, .second-attempt, .third-attempt, .fourth-attempt, .true-region {
+    transition: fill .5s ease-in;
+}
+
+.true-region {
+    fill: #8e408e;
+    animation: shake-item .5s;
+    -moz-animation: shake-item .5s;
+    -webkit-animation: shake-item .5s;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: 28px;
+    line-height: 28px;
+    padding: 7px 20px 0;
+    font: 18px Arial, Verdana, sans-serif;
+    background: #de481a;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.footer {
+    /*width: 100%;*/
+    height: 150px;
+    margin: -150px auto 0;
+    background: #67757b;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    bottom: 0px;
+}
+
+.task {
+    text-align: center;
+    line-height: 150px;
+    font-size: 24px;
+}
+
+.home-page-container {
+    text-align: center;
+    font-size: 30px;
+    font-family: serif;
+    animation: scaleUp 0.5s both ease-in;
+}
+
+.home-page-container p {
+    padding-top: 100px;
+}
+
+.country-select {
+    height: 50px !important;
+    font-size: 20px !important;
+}
+
+.country-select.shake {
+    animation: shake-item .5s;
+    -moz-animation: shake-item .5s;
+    -webkit-animation: shake-item .5s;
+}
+
+.custom-btn, .custom-btn:hover, .custom-btn:focus, .custom-btn:active {
+    border: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.custom-btn span {
+    color: #a7a7a7;
+    transition: color .2s ease-out;
+}
+
+.custom-btn span.ready {
+    color: #66afe9;
+}
+
+.custom-btn span:hover {
+    color: #000;
+}
+
+.custom-btn span.ready, .custom-btn span:hover {
+    transition: color .2s ease-in;
+}
+
+.custom-btn span {
+    font-size: 40px;
+}
+
+.modal-header .close {
+    outline: none !important;
+    transition: opacity .2s ease-out;
+}
+
+.modal-header .close:hover {
+    transition: opacity .2s ease-in;
+}
+
+.modal-dialog .btn-default {
+    transition: background-color .2s ease-out;
+}
+
+.modal-dialog .btn-default:hover {
+    transition: background-color .2s ease-in;
+}
+
+/* animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from    {
+        opacity: 0.3;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+    }
+}
+
+/* shake */
+@keyframes shake-item {
+    10%, 90% {
+        transform: translateX(-1px);
+        -webkit-transform: translateX(-1px);
+        -ms-transform: translateX(-1px);
+    }
+
+    20%, 80% {
+        transform: translateX(-3px);
+        -webkit-transform: translateX(-3px);
+        -ms-transform: translateX(-3px);
+    }
+
+    30%, 50%, 70% {
+        transform: translateX(1px);
+        -webkit-transform: translateX(1px);
+        -ms-transform: translateX(1px);
+    }
+
+    40%, 60% {
+        transform: translateX(3px);
+        -webkit-transform: translateX(3px);
+        -ms-transform: translateX(3px);
+    }
+}
