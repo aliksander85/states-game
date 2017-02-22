@@ -2,13 +2,13 @@
     <p>Select country and click "Play" button to start.</p>
 
     <div class="form-inline">
-        <select class="form-control country-select" ng-model="home.selected">
+        <select class="form-control country-select" ng-model="home.selected" id="country-select">
             <option value="">Select country</option>
             <option ng-repeat="country in home.countries">{{country}}</option>
         </select>
 
         <button type="button" class="btn btn-default btn-lg custom-btn">
-            <span class="glyphicon glyphicon-play-circle" aria-hidden="true" ng-click="home.startGame()"></span>
+            <span class="glyphicon glyphicon-play-circle" aria-hidden="true" ng-click="home.startGame()" ng-class="{'ready': home.selected.length > 0}"></span>
         </button>
     </div>
 </div>

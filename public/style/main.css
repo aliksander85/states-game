@@ -167,33 +167,8 @@ body {
 .true-region {
     fill: #8e408e;
     animation: shake-item .5s;
+    -moz-animation: shake-item .5s;
     -webkit-animation: shake-item .5s;
-}
-
-@keyframes shake-item {
-    10%, 90% {
-        transform: translateX(-1px);
-        -webkit-transform: translateX(-1px);
-        -ms-transform: translateX(-1px);
-    }
-
-    20%, 80% {
-        transform: translateX(-3px);
-        -webkit-transform: translateX(-3px);
-        -ms-transform: translateX(-3px);
-    }
-
-    30%, 50%, 70% {
-        transform: translateX(1px);
-        -webkit-transform: translateX(1px);
-        -ms-transform: translateX(1px);
-    }
-
-    40%, 60% {
-        transform: translateX(3px);
-        -webkit-transform: translateX(3px);
-        -ms-transform: translateX(3px);
-    }
 }
 
 .tooltip {
@@ -232,6 +207,10 @@ body {
     text-align: center;
     font-size: 30px;
     font-family: serif;
+
+    -webkit-animation: scaleUp 0.5s both ease-in;
+    -moz-animation: scaleUp 0.5s both ease-in;
+    animation: scaleUp 0.5s both ease-in;
 }
 
 .home-page-container p {
@@ -243,6 +222,12 @@ body {
     font-size: 20px !important;
 }
 
+.country-select.shake {
+    animation: shake-item .5s;
+    -moz-animation: shake-item .5s;
+    -webkit-animation: shake-item .5s;
+}
+
 .custom-btn, .custom-btn:hover, .custom-btn:focus, .custom-btn:active {
     border: none !important;
     background-color: transparent !important;
@@ -251,9 +236,64 @@ body {
 }
 
 .custom-btn span {
+    color: #a7a7a7;
+    transition: color .2s ease-out;
+}
+
+.custom-btn span.ready {
+    color: #66afe9;
+}
+
+.custom-btn span:hover {
+    color: #000;
+}
+
+.custom-btn span.ready, .custom-btn span:hover {
+    transition: color .2s ease-in;
+}
+
+.custom-btn span {
     font-size: 40px;
 }
 
 .modal-header .close {
     outline: none !important;
+}
+
+/* animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from    {
+        opacity: 0.3;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+    }
+}
+
+/* shake */
+@keyframes shake-item {
+    10%, 90% {
+        transform: translateX(-1px);
+        -webkit-transform: translateX(-1px);
+        -ms-transform: translateX(-1px);
+    }
+
+    20%, 80% {
+        transform: translateX(-3px);
+        -webkit-transform: translateX(-3px);
+        -ms-transform: translateX(-3px);
+    }
+
+    30%, 50%, 70% {
+        transform: translateX(1px);
+        -webkit-transform: translateX(1px);
+        -ms-transform: translateX(1px);
+    }
+
+    40%, 60% {
+        transform: translateX(3px);
+        -webkit-transform: translateX(3px);
+        -ms-transform: translateX(3px);
+    }
 }
