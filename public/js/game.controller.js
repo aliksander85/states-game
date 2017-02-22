@@ -1,6 +1,6 @@
 angular
     .module('statesGame')
-    .controller('GameController', ['$stateParams', 'MapService', '$state', '$rootScope', 'ModalService', function ($stateParams, MapService, $state, $rootScope, ModalService) {
+    .controller('GameController', ['$stateParams', 'MapService', '$state', '$rootScope', 'ModalService', '$scope', function ($stateParams, MapService, $state, $rootScope, ModalService, $scope) {
         var vm = this;
 
         if (angular.isString($stateParams.id) && $stateParams.id.length > 0) {
@@ -15,7 +15,7 @@ angular
             });
         });
 
-        $rootScope.$on('$destroy', function () {
+        $scope.$on('$destroy', function() {
             finishedGameListener();
         });
     }]);
