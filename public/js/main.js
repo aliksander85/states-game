@@ -130,16 +130,21 @@
             if (numberOfRegion < quantity) {
                 document.getElementById('task').innerText = 'Click on ' + regions[numberOfRegion].properties.name;
             } else {
-                // console.log('a, attempts = {}ttempts', attempts);
-                // console.log('errors', errors);
-                var score = calculateResults(attempts);
-
-                document.getElementById('task').innerText = 'You Win! Your score is ' + score + '%';
-                mainInterface.showCountryList(true);
-
-                attempts = {};
-                errors = 0;
+                finishGame();
             }
+        }
+
+        function finishGame() {
+            // console.log('a, attempts = {}ttempts', attempts);
+            // console.log('errors', errors);
+            var score = calculateResults(attempts);
+
+            document.getElementById('task').innerText = 'You Win! Your score is ' + score + '%';
+            mainInterface.showCountryList(true);
+
+            attempts = {};
+            errors = 0;
+            numberOfRegion = 0;
         }
     };
 
@@ -283,6 +288,7 @@
         }
 
         function chooseCountry(_index) {
+            document.getElementById('task').innerText = '';
             mainInterface.showCountryList(false);
 
             var chosenCountry = countries[_index];
