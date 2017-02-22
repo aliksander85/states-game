@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="./style/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="./bower_components/angular-bootstrap/ui-bootstrap-csp.css">
     <script src="./bower_components/d3/d3.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 </head>
 <body>
 
@@ -21,7 +28,7 @@
                 <li class="countries-item" id="usa">USA</li>
             </ul>
         </header>
-        <main class="container">
+        <main class="main-container">
             <ui-view></ui-view>
             <div class="map-contianer" id="svg-container"></div>
         </main>
@@ -36,5 +43,6 @@
 <script type="text/javascript" src="./js/index.route.js"></script>
 <script type="text/javascript" src="./js/home.controller.js"></script>
 <script type="text/javascript" src="./js/game.controller.js"></script>
+<script type="text/javascript" src="./js/modal.controller.js"></script>
 </body>
 </html>

@@ -1,1 +1,1 @@
-angular.module('statesGame', ['ui.router', 'ngAnimate']);
+angular.module('statesGame', ['ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
