@@ -93,7 +93,6 @@
                 }
             }
 
-            document.getElementById('score').innerText = errors;
         }
 
 
@@ -235,7 +234,7 @@
                 if (error) {
                     return console.error(error);
                 }
-                console.log('states', states);
+                // console.log('states', states);
 
                 var allRegions = states.objects.new_lakes.geometries.slice();
 
