@@ -4,13 +4,13 @@ angular
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '../partials/home.html',
+                templateUrl: 'public/partials/home.html',
                 controller: 'HomeController',
                 controllerAs: 'home'
             })
             .state('game', {
                 url: '/game/:id',
-                templateUrl: '../partials/game.html',
+                templateUrl: 'public/partials/game.html',
                 controller: 'GameController',
                 controllerAs: 'game'
             });

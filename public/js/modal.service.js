@@ -5,7 +5,7 @@ angular
 
         vm.openModal = function (content, cb) {
             var modalInstance = $uibModal.open({
-                templateUrl: '../partials/modal.html',
+                templateUrl: 'public/partials/modal.html',
                 controller: 'ModalCtrl',
                 controllerAs: 'modal',
                 size: 'md',

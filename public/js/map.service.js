@@ -81,7 +81,7 @@ angular
         }
 
         function drawMap(path, chosenCountry) {
-            d3.json('../data/provincies.json', function (error, states) {
+            d3.json('public/data/provincies.json', function (error, states) {
                 if (error) {
                     return console.error(error);
                 }
