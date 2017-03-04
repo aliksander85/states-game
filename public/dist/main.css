@@ -162,7 +162,7 @@ body {
 }
 
 .rightRegion, .first-attempt, .second-attempt, .third-attempt, .fourth-attempt, .true-region {
-    transition: fill .5s ease-in;
+    transition: fill .2s ease-in;
 }
 
 .true-region {

@@ -2,7 +2,7 @@
 <html lang="en" ng-app="statesGame">
 <head>
     <meta charset="UTF-8">
-    <title>States and provincies game</title>
+    <title>States, provincies and territories game</title>
     <link rel="stylesheet" href="public/style/main.css">
     <link rel="stylesheet" href="public/bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="public/bower_components/angular-bootstrap/ui-bootstrap-csp.css">
@@ -18,17 +18,30 @@
     <script src="public/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="public/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAe5C5U5It5y6SC2vrlj-kBKtwmkZymyTo",
+            authDomain: "provincies-game.firebaseapp.com",
+            databaseURL: "https://provincies-game.firebaseio.com",
+            storageBucket: "",
+            messagingSenderId: "210448179882"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 <body>
-<ui-view></ui-view>
+    <ui-view></ui-view>
 
-<script src="public/js/index.module.js"></script>
-<script src="public/js/index.route.js"></script>
-<script src="public/js/map.service.js"></script>
-<script src="public/js/questionnaire.service.js"></script>
-<script src="public/js/modal.service.js"></script>
-<script src="public/js/home.controller.js"></script>
-<script src="public/js/game.controller.js"></script>
-<script src="public/js/modal.controller.js"></script>
+    <script src="public/js/index.module.js"></script>
+    <script src="public/js/index.route.js"></script>
+    <script src="public/js/map.service.js"></script>
+    <script src="public/js/questionnaire.service.js"></script>
+    <script src="public/js/modal.service.js"></script>
+    <script src="public/js/home.controller.js"></script>
+    <script src="public/js/game.controller.js"></script>
+    <script src="public/js/modal.controller.js"></script>
 </body>
 </html>
