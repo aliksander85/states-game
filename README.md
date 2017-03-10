@@ -1,4 +1,4 @@
-# The game
+# The States, provinces and territories game
 
 ## Description
 
@@ -6,7 +6,7 @@ Do you know states, provinces and territories of USA, Canada, Brazil or Australi
 
 ## Preparations
 
-Application is using [bower](https://bower.io). Please be sure you have pre-installed it.
+Application is using [bower](https://bower.io) and [firebase-tools](https://github.com/firebase/firebase-tools). Please be sure you have pre-installed it.
 
 ## Install
 
@@ -17,6 +17,12 @@ bower install
 
 ## Run
 
-Run your local web server or just open the `index.html` in your browser
+Run the project locally in your terminal: 
 
-* Enjoy it.
+```
+firebase serve
+```
+ 
+open the web app in your browser by link `http://localhost:5000`
+
+Enjoy it.
